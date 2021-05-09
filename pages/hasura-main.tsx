@@ -7,7 +7,10 @@ import { Layout } from '../components/Layout'
 
 const FecthMain: VFC = () => {
   const { data, error } = useQuery<GetUsersQuery>(GET_USERS, {
-    fetchPolicy: 'network-only',
+    fetchPolicy: 'cache-first', // default
+    // fetchPolicy: 'cache-and-network',
+    // fetchPolicy: "no-cache",
+    // fetchPolicy: 'network-only',
   })
   if (error) {
     return (
